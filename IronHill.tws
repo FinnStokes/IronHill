@@ -5,7 +5,7 @@ S''
 p2
 sS'saveDestination'
 p3
-VC:\u005cUsers\u005cCpt Janeway\u005cDocuments\u005cGitHub\u005cIronHill\u005cIronHill.tws
+VC:\u005cUsers\u005cFinn\u005cDocuments\u005cGitHub\u005cIronHill\u005cIronHill.tws
 p4
 sS'target'
 p5
@@ -140,7 +140,7 @@ Tiddler
 p53
 (dp54
 g19
-VSophie Hollitt, Finn Stokes and Rory Stokes
+VSophie Hollitt, James Keal, Finn Stokes and Rory Stokes
 p55
 sg21
 VStoryAuthor
@@ -150,9 +150,9 @@ g24
 ((I2014
 I1
 I26
-I2
-I38
-I33
+I11
+I27
+I0
 I6
 I26
 I1
@@ -434,15 +434,15 @@ g12
 I00
 sg13
 (lp143
-F1042.0
-aF156.0
+F1059.0
+aF176.0
 asg15
 (itiddlywiki
 Tiddler
 p144
 (dp145
 g19
-V<<silently>>\u000a<<if $player eq "gnome">>\u000a	<<set $gnome_progress = 1 >>\u000a	<<set $time = "midday" >>\u000a<<endif>>\u000a<<endsilently>><<display "Status">>\u000a<<if $goblin_progress lte 1>>\u000asince you don't have many other options, you go and check out the [[goblin|Goblin]]. his armour is a knight artifact! <<if $goblin_hasItem eq true>>The goblin seems to be trying to make a <b>decision</b>.<<endif>><<if $gnome_hasGears eq true>>\u000a[[Offer him your gears|gnomeOfferGears]]<<endif>><<if $gnome_hasMetal eq true>>\u000a[[Offer him your metal sample|gnomeOfferMetal]]<<endif>><<else>>\u000a<<if $goblin_hasItem eq true>>The [[goblin|Goblin]] <<if $goblin_reaction eq "run">> runs away<<else>>does something else<<endif>>\u000a<<else>>\u000asince you don't have many other options, you go and check out the goblin. Elemental runes suggest his armour is a knight artifact! <<if $goblin_hasItem eq true>>The [[goblin|Goblin]] seems to be trying to make a <b>decision</b>.<<endif>><<if $gnome_hasGears eq true>>\u000a[[Offer him your gears|gnomeOfferGears]]<<endif>><<if $gnome_hasMetal eq true>>\u000a[[Offer him your metal sample|gnomeOfferMetal]]<<endif>><<endif>><<endif>>
+V<<silently>>\u000a<<if $player eq "gnome">>\u000a	<<set $gnome_progress = 1 >>\u000a	<<set $time = "midday" >>\u000a<<endif>>\u000a<<endsilently>><<display "Status">>\u000a<<if $goblin_progress lte 1>>\u000asince you don't have many other options, you go and check out the [[goblin|Goblin]]. his armour is a knight artifact! <<if $goblin_hasItem eq true>>The goblin seems to be trying to make a <b>decision</b>.<<endif>><<if $gnome_hasGears eq true>>\u000a[[Offer him your gears|gnomeOfferGears]]<<endif>><<if $gnome_hasMetal eq true>>\u000a[[Offer him your metal sample|gnomeOfferMetal]]<<endif>><<else>>\u000a<<if $goblin_hasItem eq true>><<if $goblin_attemptReturn eq true>>The [[goblin|Goblin]] doesn't seem interested. he tries to return your offers.\u000a\u000a[[Convince him|gnomeConvince]]<<else>>The [[goblin|Goblin]] strides away carrying your offers.\u000a\u000a[[Chase him|gnomeChase]]\u000a[[Call guards|gnomeCallGuards]]<<endif>><<else>>since you don't have many other options, you go and check out the goblin. Elemental runes suggest his armour is a knight artifact! <<if $goblin_hasItem eq true>>The [[goblin|Goblin]] seems to be trying to make a <b>decision</b>.<<endif>><<if $gnome_hasGears eq true>>\u000a[[Offer him your gears|gnomeOfferGears]]<<endif>><<if $gnome_hasMetal eq true>>\u000a[[Offer him your metal sample|gnomeOfferMetal]]<<endif>><<endif>><<endif>>
 p146
 sg21
 VgnomeSeeGoblin
@@ -452,9 +452,9 @@ g24
 ((I2014
 I1
 I26
-I9
+I11
 I44
-I15
+I53
 I6
 I26
 I1
@@ -695,7 +695,7 @@ g19
 V<i>It is <<print $time>>. You are the <<print $player>>.</i>
 p221
 sg21
-VStatus.
+VStatus
 p222
 sg23
 g24
@@ -703,8 +703,8 @@ g24
 I1
 I26
 I11
-I13
-I1
+I34
+I17
 I6
 I26
 I1
@@ -892,7 +892,7 @@ Tiddler
 p279
 (dp280
 g19
-V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Walk away|goblinWalkAway]]\u000a[[Try to hand them back|goblinReturn]]
+V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_attemptReturn = false>>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Walk away|goblinWalkAway]]\u000a[[Try to hand them back|goblinReturn]]
 p281
 sg21
 VgoblinAccept
@@ -903,8 +903,8 @@ g24
 I1
 I26
 I11
-I5
-I35
+I53
+I38
 I6
 I26
 I1
@@ -1434,8 +1434,8 @@ g12
 I00
 sg13
 (lp443
-I1287
-aI142
+F752.0
+aF182.0
 asg15
 (itiddlywiki
 Tiddler
@@ -1542,7 +1542,7 @@ Tiddler
 p474
 (dp475
 g19
-V
+V<<display "Status">>\u000a\u000a[[Gnome]]
 p476
 sg21
 VgoblinRunAway
@@ -1553,8 +1553,8 @@ g24
 I1
 I26
 I11
-I17
-I17
+I51
+I6
 I6
 I26
 I1
@@ -1565,11 +1565,174 @@ Rp481
 sg29
 (lp482
 sg31
-g481
+g24
+((I2014
+I1
+I26
+I11
+I17
+I17
+I6
+I26
+I1
+tp483
+(dp484
+tp485
+Rp486
+sbsa(dp487
+g12
+I00
+sg13
+(lp488
+F1264.0
+aF217.0
+asg15
+(itiddlywiki
+Tiddler
+p489
+(dp490
+g19
+V<<display "Status">>\u000a\u000aYou attempt to hurry after the goblin, but can't keep up with his giant strides.\u000a\u000a[[Call the guards|gnomeCallGuards]]
+p491
+sg21
+VgnomeChase
+p492
+sg23
+g24
+((I2014
+I1
+I26
+I11
+I45
+I54
+I6
+I26
+I1
+tp493
+(dp494
+tp495
+Rp496
+sg29
+(lp497
+sg31
+g24
+((I2014
+I1
+I26
+I11
+I45
+I6
+I6
+I26
+I1
+tp498
+(dp499
+tp500
+Rp501
+sbsa(dp502
+g12
+I00
+sg13
+(lp503
+F1444.0
+aF154.0
+asg15
+(itiddlywiki
+Tiddler
+p504
+(dp505
+g19
+V<<display "Status">>\u000a\u000ayou call the guards and they chase the goblin
+p506
+sg21
+VgnomeCallGuards
+p507
+sg23
+g24
+((I2014
+I1
+I26
+I11
+I47
+I12
+I6
+I26
+I1
+tp508
+(dp509
+tp510
+Rp511
+sg29
+(lp512
+sg31
+g24
+((I2014
+I1
+I26
+I11
+I45
+I58
+I6
+I26
+I1
+tp513
+(dp514
+tp515
+Rp516
+sbsa(dp517
+g12
+I00
+sg13
+(lp518
+F1300.0
+aF36.0
+asg15
+(itiddlywiki
+Tiddler
+p519
+(dp520
+g19
+V<<display "Status">>\u000a\u000ayou attempt to persuade the goblin of the value of the trade. you gesture to the ill fit of his armour, and talk about how good gears are. he seems affronted and walks away, taking your items with him.\u000a\u000a[[Chase him|gnomeChase]]\u000a[[Call guards|gnomeCallGuards]]
+p521
+sg21
+VgnomeConvince
+p522
+sg23
+g24
+((I2014
+I1
+I26
+I11
+I49
+I41
+I6
+I26
+I1
+tp523
+(dp524
+tp525
+Rp526
+sg29
+(lp527
+sg31
+g24
+((I2014
+I1
+I26
+I11
+I47
+I23
+I6
+I26
+I1
+tp528
+(dp529
+tp530
+Rp531
 sbsasS'scale'
-p483
+p532
 F1.0
 sS'snapping'
-p484
+p533
 I00
 ss.
