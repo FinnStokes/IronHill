@@ -334,8 +334,8 @@ g12
 I00
 sg13
 (lp113
-F232.0
-aF38.0
+F252.0
+aF22.0
 asg15
 (itiddlywiki
 Tiddler
@@ -581,18 +581,18 @@ tp185
 Rp186
 sbsa(dp187
 g12
-I00
+I01
 sg13
 (lp188
-F335.0
-aF578.0
+F248.0
+aF596.0
 asg15
 (itiddlywiki
 Tiddler
 p189
 (dp190
 g19
-V<<set $player = "goblin">>\u000a<<goto "goblinStart">>\u000a<<if $goblin_progress eq 1 >>\u000a	<<goto "goblinBlend">>\u000a<<else if $goblin_progress eq 2 >>\u000a	<<goto "goblinAccept">>\u000a<<endif>>
+V<<set $player = "goblin">>\u000a<<goto "goblinStart">>\u000a<<if $goblin_progress eq 1 >>\u000a	<<goto "goblinBlend">>\u000a<<else if $goblin_progress eq 2 >>\u000a	<<goto "goblinAccept">>\u000a<<else if $goblin_progress eq 3 >>\u000a	<<goto "goblinArrested">>\u000a<<endif>>
 p191
 sg21
 VGoblin
@@ -602,9 +602,9 @@ g24
 ((I2014
 I1
 I26
-I9
-I54
-I1
+I13
+I22
+I30
 I6
 I26
 I1
@@ -792,7 +792,7 @@ Tiddler
 p249
 (dp250
 g19
-V<<silently>>\u000a<<set $goblin_progress = 1 >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou attempt to blend in to your surroundings. It only serves to draw more stares. An irate looking [[gnome|Gnome]] marches your way.\u000a<<if $gnome_progress eq 1>>\u000a[[Smile and nod in greeting|goblinGreet]]\u000a[[Attempt to avoid eye contact|goblinGreet]]\u000a<<endif>>
+V<<silently>>\u000a<<set $goblin_progress = 1 >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou attempt to blend in to your surroundings. It only serves to draw more stares. An irate looking [[gnome|Gnome]] <<if $gnome_progress gt 0>>marches your way.\u000a<<if $gnome_progress eq 1>>\u000a[[Smile and nod in greeting|goblinGreet]]\u000a[[Attempt to avoid eye contact|goblinGreet]]\u000a<<endif>><<else>>in particular seems to be paying close attention to you<<endif>>
 p251
 sg21
 VgoblinBlend
@@ -802,9 +802,9 @@ g24
 ((I2014
 I1
 I26
-I9
-I50
-I49
+I12
+I13
+I5
 I6
 I26
 I1
@@ -1134,7 +1134,7 @@ g12
 I00
 sg13
 (lp353
-F529.0
+F527.0
 aF852.0
 asg15
 (itiddlywiki
@@ -1184,8 +1184,8 @@ g12
 I00
 sg13
 (lp368
-F860.0
-aF851.0
+F713.0
+aF926.0
 asg15
 (itiddlywiki
 Tiddler
@@ -1484,8 +1484,8 @@ g12
 I00
 sg13
 (lp458
-F1413.0
-aF593.0
+F1430.0
+aF594.0
 asg15
 (itiddlywiki
 Tiddler
@@ -1534,15 +1534,15 @@ g12
 I00
 sg13
 (lp473
-F1460.0
-aF795.0
+F1433.0
+aF755.0
 asg15
 (itiddlywiki
 Tiddler
 p474
 (dp475
 g19
-V<<display "Status">>\u000a\u000a[[Gnome]]
+V<<display "Status">>\u000a\u000ayou run away down the confusing narrow streets with guards chasing. eventually you get caught, all your belongings confiscated and taken into [[custody|goblinArrested]].
 p476
 sg21
 VgoblinRunAway
@@ -1552,9 +1552,9 @@ g24
 ((I2014
 I1
 I26
-I11
-I51
-I6
+I13
+I20
+I46
 I6
 I26
 I1
@@ -1692,7 +1692,7 @@ Tiddler
 p519
 (dp520
 g19
-V<<display "Status">>\u000a\u000ayou attempt to persuade the goblin of the value of the trade. you gesture to the ill fit of his armour, and talk about how good gears are. he seems affronted and walks away, taking your items with him.\u000a\u000a[[Chase him|gnomeChase]]\u000a[[Call guards|gnomeCallGuards]]
+V<<display "Status">>\u000a\u000ayou attempt to persuade the goblin of the value of the trade. you gesture to the ill fit of his armour, and talk about how good gears are. <<if $goblin_reaction eq "take">>he seems affronted and walks away, taking your items with him.\u000a\u000a[[Chase him|gnomeChase]]\u000a[[Call guards|gnomeCallGuards]]\u000a<<else>>he seems confused, and drops your precious items in the dust, before marching away.\u000a\u000a[[Yell at the goblin|gnomeYell]]\u000a<<endif>>
 p521
 sg21
 VgnomeConvince
@@ -1702,9 +1702,9 @@ g24
 ((I2014
 I1
 I26
-I11
-I49
-I41
+I12
+I10
+I16
 I6
 I26
 I1
@@ -1729,10 +1729,110 @@ tp528
 (dp529
 tp530
 Rp531
+sbsa(dp532
+g12
+I00
+sg13
+(lp533
+F1569.0
+aF17.0
+asg15
+(itiddlywiki
+Tiddler
+p534
+(dp535
+g19
+V<<silently>>\u000a<<set $gnome_hasGears = true>>\u000a<<set $gnome_hasMetal = true>>\u000a<<endsilently>><<display "Status">>\u000a\u000ayou yell after the retreating goblin. the guards notice and converge on him. as he tries to run away, you pick your [[items|gnomeInventory]] back up from the ground.
+p536
+sg21
+VgnomeYell
+p537
+sg23
+g24
+((I2014
+I1
+I26
+I12
+I15
+I14
+I6
+I26
+I1
+tp538
+(dp539
+tp540
+Rp541
+sg29
+(lp542
+sg31
+g24
+((I2014
+I1
+I26
+I12
+I6
+I54
+I6
+I26
+I1
+tp543
+(dp544
+tp545
+Rp546
+sbsa(dp547
+g12
+I00
+sg13
+(lp548
+F1621.0
+aF673.0
+asg15
+(itiddlywiki
+Tiddler
+p549
+(dp550
+g19
+V<<silently>>\u000a	<<set $time = "evening">>\u000a	<<set $goblin_progress = 3>>\u000a<<endsilently>><<display "Status>>\u000a\u000alocked in your cell, with no view of the sky, you lose track of time. eventually you hear heavy footsteps coming your way, and look up to see the hulking figure of a [[knight|Knight]] headed towards your cell.
+p551
+sg21
+VgoblinArrested
+p552
+sg23
+g24
+((I2014
+I1
+I26
+I13
+I21
+I59
+I6
+I26
+I1
+tp553
+(dp554
+tp555
+Rp556
+sg29
+(lp557
+sg31
+g24
+((I2014
+I1
+I26
+I13
+I20
+I50
+I6
+I26
+I1
+tp558
+(dp559
+tp560
+Rp561
 sbsasS'scale'
-p532
+p562
 F1.0
 sS'snapping'
-p533
+p563
 I00
 ss.
