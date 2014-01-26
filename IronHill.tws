@@ -190,7 +190,7 @@ Tiddler
 p68
 (dp69
 g19
-V<<silently>>\u000a<<set $gnome_init = true>>\u000a<<set $gnome_hasGears = true>>\u000a<<set $gnome_hasMetal = true>>\u000a<<set $time = "morning">>\u000a<<endsilently>><<display "Status">>\u000a\u000aIt's been a long walk from the remains of your small airship, and only so much could be [[salvaged|gnomeInventory]]. You are keen to restore yourself to a comfortable level of wealth, but you'll need to be smart: there's only so much to work with. You'll need to trade what you have for passage on the Alatus to return [[home|gnomeHome]].\u000a\u000aNaturally, the place to start looking is the [[market|market]].
+V<<silently>>\u000a<<set $gnome_init = true>>\u000a<<set $gnome_hasGears = true>>\u000a<<set $gnome_hasMetal = true>>\u000a<<set $time = "morning">>\u000a<<endsilently>><<display "Status">>\u000a\u000aIt's been a long walk from the remains of your small airship, and only so much could be [[salvaged|gnomeInventory]]. You are keen to restore yourself to a comfortable level of wealth, but you'll need to be smart: there's only so much to work with. You'll need to trade what you have for passage on the Alatus to return [[home|gnomeHome]].\u000aNaturally, the place to start looking is the [[market|market]]
 p70
 sg21
 VgnomeStart
@@ -200,9 +200,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I22
-I58
+I2
+I46
+I35
 I6
 I26
 I1
@@ -342,7 +342,7 @@ Tiddler
 p114
 (dp115
 g19
-V<<set $player = "gnome">>\u000a<<goto "gnomeStart">>\u000a<<if $gnome_progress eq 1 >>\u000a	<<goto "gnomeSeeGoblin">>\u000a<<endif>>
+V<<set $player = "gnome">>\u000a<<goto "gnomeStart">>\u000a<<if $gnome_progress eq 1 >>\u000a	<<goto "gnomeSeeGoblin">>\u000a<<elif $gnome_progress eq 2>>\u000a	<<goto "gnomeTalking">>\u000a<<endif>>
 p116
 sg21
 VGnome
@@ -352,9 +352,9 @@ g24
 ((I2014
 I1
 I26
-I3
-I29
-I27
+I14
+I25
+I49
 I6
 I26
 I1
@@ -392,7 +392,7 @@ Tiddler
 p129
 (dp130
 g19
-V<<display "Status">>\u000a\u000a<<if $player neq "knight">>As you approach the market you can see the [[tavern]] and the [[bank]]. There is also a dusty road leading back to the [[outskirts]].\u000a<<else>><<set $knight_progress = 2>>You spot the source of commotion. A [[gnome|Gnome]] is loudly complaining that he was robbed by a [[goblin|Goblin]].\u000a<<endif>>\u000a<<if $player eq "gnome">>The sounds of the marketplace are familiar, and help you feel a little more at home. Other gnomes call out trying to sell their wares, but without coin you can't get any more stock. You'll just have to try to sell [[what you have|gnomeInventory]].\u000a\u000aAs you wander looking for someone to sell to, a glint catches your eye. It's a strange sight, but that's a goblin in some kind of armor. You're sure the goblin no idea what it's worth.\u000a[[Investigate goblin|gnomeSeeGoblin]]\u000a<<endif>><<if $player eq "goblin">>The marketplace is crowded and loud with the sounds of gnomes shouting. There are too many gnomes all moving about, and they all stare at you (though some of them are pretending not to). This is getting very uncomfortable.\u000a\u000a[[Try to blend in|goblinBlend]]\u000a<<endif>>
+V<<display "Status">>\u000a\u000a<<if $player neq "knight">>As you approach the market you can see the [[tavern]] and the [[bank]]. There is also a dusty road leading back to the [[outskirts]].\u000a<<else>><<set $knight_progress = 2>>You spot the source of commotion in the market. A [[gnome|Gnome]] is loudly complaining that he was robbed by a [[goblin|Goblin]].\u000a<<endif>>\u000a<<if $player eq "gnome">>The sounds of the marketplace are familiar, and help you feel a little more at home. Other gnomes call out trying to sell their wares, but without coin you can't get any more stock. You'll just have to try to sell [[what you have|gnomeInventory]].\u000a\u000aAs you wander looking for someone to sell to, a glint catches your eye. It's a strange sight, but that's a goblin in some kind of armor. You're sure the goblin no idea what it's worth.\u000a[[Investigate goblin|gnomeSeeGoblin]]\u000a<<endif>><<if $player eq "goblin">>The marketplace is crowded and loud with the sounds of gnomes shouting. There are too many gnomes all moving about, and they all stare at you (though some of them are pretending not to). This is getting very uncomfortable.\u000a\u000a[[Try to blend in|goblinBlend]]\u000a<<endif>>
 p131
 sg21
 Vmarket
@@ -402,9 +402,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I51
-I5
+I15
+I23
+I4
 I6
 I26
 I1
@@ -452,9 +452,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I47
-I57
+I15
+I19
+I33
 I6
 I26
 I1
@@ -492,7 +492,7 @@ Tiddler
 p159
 (dp160
 g19
-V<<silently>>\u000a<<set $gnome_hasGears = false>>\u000a<<set $goblin_hasItem = true>>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe goblin looks puzzled, but takes the gears and plays with them for a few seconds.\u000a\u000a[[<b>«</b> Back|gnomeSeeGoblin]]
+V<<silently>>\u000a<<set $gnome_hasGears = false>>\u000a<<set $goblin_hasItem = true>>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe goblin looks puzzled, but takes the gears and plays with them for a few seconds.\u000a[[<b>«</b> Back|gnomeSeeGoblin]]
 p161
 sg21
 VgnomeOfferGears
@@ -502,9 +502,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I46
-I27
+I15
+I20
+I5
 I6
 I26
 I1
@@ -642,7 +642,7 @@ Tiddler
 p204
 (dp205
 g19
-V<<display "Status">>\u000a\u000aYou are at the outskirts of the [[town|IronHill]]. <<if $player eq "goblin">>The spirits of the buildings and gnomes give the town a glow completely different to the natural environments you are used to. <<else>>There is really not much going on out here.\u000a\u000a<<endif>>\u000aYou can see the [[airship|theAlatus]] rising above the township, and a dirt road in towards the [[market]].
+V<<display "Status">>\u000a\u000aYou are at the outskirts of the [[town|IronHill]]. <<if $player eq "goblin">>The spirits of the buildings and gnomes give the town a glow completely different to the natural environments you are used to. <<else>>There is really not much going on out here.\u000a<<endif>>\u000a\u000aYou can see the [[airship|theAlatus]] rising above the township, and a dirt road in towards the [[market]].
 p206
 sg21
 Voutskirts
@@ -653,8 +653,8 @@ g24
 I1
 I26
 I14
-I48
-I57
+I1
+I9
 I6
 I26
 I1
@@ -742,7 +742,7 @@ Tiddler
 p234
 (dp235
 g19
-V<<silently>>\u000a<<set $goblin_progress = 1 >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou attempt to blend in to your surroundings. It only serves to draw more stares. An irate looking [[gnome|Gnome]] <<if $gnome_progress gt 0>>marches your way.\u000a<<if $gnome_progress eq 1>>\u000a[[Smile and nod in greeting|goblinGreet]]\u000a[[Attempt to avoid eye contact|goblinGreet]]\u000a<<endif>><<else>>in particular seems to be paying close attention to you<<endif>>
+V<<silently>>\u000a<<set $goblin_progress = 1 >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou attempt to blend in to your surroundings. It only serves to draw more stares. An irate looking [[gnome|Gnome]] <<if $gnome_progress gt 0>>marches your way.\u000a<<if $gnome_progress eq 1>>\u000a[[Smile and nod in greeting|goblinGreet]]\u000a[[Attempt to avoid eye contact|goblinGreet]]\u000a<<endif>><<else>>in particular seems to be paying close attention to you.<<endif>>
 p236
 sg21
 VgoblinBlend
@@ -752,9 +752,9 @@ g24
 ((I2014
 I1
 I26
-I12
-I13
-I5
+I16
+I4
+I42
 I6
 I26
 I1
@@ -784,15 +784,15 @@ g12
 I00
 sg13
 (lp248
-F980.0
-aF588.0
+F985.0
+aF590.5
 asg15
 (itiddlywiki
 Tiddler
 p249
 (dp250
 g19
-V<<display "Status">>\u000a\u000aThe gnome seems to falter momentarily, but approaches anyway. He begins to babble incoherently, well beyond your limited comprehension of the Gnomish language. You think he might be complimenting your clothing.\u000aHe reaches into a sturdy looking bag and pulls out a shiny trinket, offering it to you.\u000a\u000a[[Accept the offering|goblinAccept]]
+V<<display "Status">>\u000a\u000aThe gnome seems to falter momentarily, but approaches anyway. He begins to babble incoherently, well beyond your limited comprehension of the Gnomish language. You think he might be complimenting your clothing.\u000aHe reaches into a sturdy looking bag and pulls out a shiny trinket, offering it to you. You suspect this might be part of gnome smalltalk, but really don't know.\u000a\u000a[[Accept the offering|goblinAccept]]\u000a[[Refuse the offering|goblinReturn]]
 p251
 sg21
 VgoblinGreet
@@ -802,9 +802,9 @@ g24
 ((I2014
 I1
 I26
-I3
-I9
-I37
+I16
+I12
+I8
 I6
 I26
 I1
@@ -834,15 +834,15 @@ g12
 I00
 sg13
 (lp263
-F1123.0
-aF588.0
+F1125.5
+aF590.5
 asg15
 (itiddlywiki
 Tiddler
 p264
 (dp265
 g19
-V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_attemptReturn = false>>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Thank him for the gift and walk away|goblinWalkAway]]\u000a[[Run before he changes his mind|goblinRunAway]]
+V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_attemptReturn = false>>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and turn them over in your hands. They certainly do have nice spirits in them, and you think they might enjoy travelling around with you for a while. The gnome looks at you intently.\u000a\u000a[[Thank him for the gift and walk away|goblinWalkAway]]\u000a[[Run before he changes his mind|goblinRunAway]]
 p266
 sg21
 VgoblinAccept
@@ -852,9 +852,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I1
-I55
+I16
+I12
+I27
 I6
 I26
 I1
@@ -884,8 +884,8 @@ g12
 I00
 sg13
 (lp278
-F541.0
-aF573.0
+F538.0
+aF575.0
 asg15
 (itiddlywiki
 Tiddler
@@ -942,7 +942,7 @@ Tiddler
 p294
 (dp295
 g19
-V<<set $goblin_attemptReturn = true>><<display "Status">>\u000a\u000aAlthough the trinkets are shiny they have no use to you. you offer them back to the gnome, but he refuses to take them and points at you.\u000a\u000a[[Place the items on the ground|goblinDrop]]\u000a[[Carry them with you|goblinWalkAway]]
+V<<set $goblin_attemptReturn = true>><<display "Status">>\u000a\u000aAlthough the trinkets are shiny and contain some nice spirits, they really have no use to you. You try not to take them from the gnome, but find them pushed into your hands.\u000a\u000aYou try to return the items, but the gnome won't take them and points at you. You're just going to have to guess what to do.\u000a\u000a[[Place the items on the ground|goblinDrop]]\u000a[[Carry them with you|goblinWalkAway]]
 p296
 sg21
 VgoblinReturn
@@ -952,9 +952,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I3
-I41
+I16
+I17
+I26
 I6
 I26
 I1
@@ -985,14 +985,14 @@ I00
 sg13
 (lp308
 F1201.0
-aF735.0
+aF737.0
 asg15
 (itiddlywiki
 Tiddler
 p309
 (dp310
 g19
-V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_reaction = "take">>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe gnome seems distressed as you begin to walk away and he calls for the market's guards. You [[panic and run!|goblinRunAway]]
+V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_reaction = "take">>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe gnome seems distressed as you begin to walk away. This bothers you, but you're really not sure what is going on. A noise from across the marketplace draws your attention, and you noticed armoured gnomes approaching you. You [[panic and run!|goblinRunAway]]
 p311
 sg21
 VgoblinWalkAway
@@ -1002,9 +1002,9 @@ g24
 ((I2014
 I1
 I26
-I11
 I16
-I45
+I19
+I29
 I6
 I26
 I1
@@ -1042,7 +1042,7 @@ Tiddler
 p324
 (dp325
 g19
-V<<set $player = "knight">>\u000a<<goto "knightStart">>\u000a<<if $knight_progress eq 1 >>\u000a	<<goto "knightHelpGnome">>\u000a<<endif>>
+V<<set $player = "knight">>\u000a<<goto "knightStart">>\u000a<<if $knight_progress eq 1 >>\u000a	<<goto "knightHelpGnome">>\u000a<<elif $knight_progress eq 2 >>\u000a	<<goto "knightFindGoblin">>\u000a<<endif>>
 p326
 sg21
 VKnight
@@ -1052,9 +1052,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I52
-I48
+I14
+I56
+I31
 I6
 I26
 I1
@@ -1092,7 +1092,7 @@ Tiddler
 p339
 (dp340
 g19
-V<<silently>>\u000a	<<set $knight_progress = 0 >>\u000a	<<set $time = "morning">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYour pace is steady as you patrol the familiar streets of [[Iron Hill|IronHill]]. Your presence in the town was by order of the Knight's council and you serve to protect the factions weaker than yourself.\u000a\u000aYour route takes you past the [[tavern]] and the [[bank]].
+V<<silently>>\u000a	<<set $knight_progress = 0 >>\u000a	<<set $time = "morning">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYour pace is steady as you patrol the familiar streets of [[Iron Hill|IronHill]]. Your presence in the town was by order of the Knight's council, and you serve to protect all beings weaker than yourself.\u000a\u000aYour route takes you past the [[tavern]] and the [[bank]].
 p341
 sg21
 VknightStart
@@ -1102,9 +1102,9 @@ g24
 ((I2014
 I1
 I26
-I8
-I31
-I59
+I16
+I29
+I55
 I6
 I26
 I1
@@ -1142,7 +1142,7 @@ Tiddler
 p354
 (dp355
 g19
-V<<silently>>\u000a	<<$knight_progress = 1>>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou spot the source of commotion. A [[gnome|Gnome]] is loudly complaining that he was robbed by a [[goblin|Goblin]].\u000a\u000a<<if $goblin_progress eq 2>>gob_prog=2<<endif>>
+V<<silently>>\u000a	<<$knight_progress = 1>>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou spot the source of commotion. A [[gnome|Gnome]] is loudly complaining that he was robbed by a [[goblin|Goblin]].\u000a<<if $gnome_progress gte 2>>\u000a[[Ask what was stolen|knightAskGnome]]\u000a<<endif>>
 p356
 sg21
 VknightHelpGnome
@@ -1152,9 +1152,9 @@ g24
 ((I2014
 I1
 I26
+I14
+I28
 I13
-I52
-I8
 I6
 I26
 I1
@@ -1242,7 +1242,7 @@ Tiddler
 p384
 (dp385
 g19
-V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000a<<if $player neq "goblin">>The airship Alatus rises above the marketplace and Trading Hub. The large balloon that keeps the ship afloat is wreathed in steam pipes that transport power from one part of the ship to another. Large fans and propellers are visible, used to steer the ship when it's in motion.\u000a\u000aA ladder extends down into the Trading Hub.\u000a<<else>>An airship rises above the gnome town, its spirit large and proud and beautiful. The curve of the balloon is covered in metal parts of different shapes, but you think that the physical appearance is nearly as pretty as the spirit itself. Unfortunately, you think it would be difficult to take the airship back to your clan to show them.\u000a\u000aA ladder extends down into the gnome building below the ship.\u000a<<endif>>\u000a<<back>>
+V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000a<<if $player neq "goblin">>The airship Alatus rises above the marketplace and Trading Hub. The large balloon that keeps the ship afloat is wreathed in steam pipes that transport power from one part of the ship to another. Large fans and propellers are visible, used to steer the ship when it's in motion.\u000a\u000aA ladder extends down into the Trading Hub.\u000a<<else>>An airship rises above the gnome town, its spirit large and proud and beautiful. The curve of the balloon is covered in metal parts of different shapes, but you think that the physical appearance is nearly as pretty as the spirit itself. Unfortunately, you think it would be difficult to take the airship back to your clan to show them.\u000a\u000aA ladder extends down into the gnome building below the ship.\u000a<<endif>>\u000a\u000a<<back>>
 p386
 sg21
 VtheAlatus
@@ -1253,8 +1253,8 @@ g24
 I1
 I26
 I14
-I49
-I25
+I5
+I59
 I6
 I26
 I1
@@ -1292,7 +1292,7 @@ Tiddler
 p399
 (dp400
 g19
-V<<display "Status">>\u000a\u000aThe volume of noisy chatter in Iron Hill tavern is exceded only by the loud screeching of the aging steam pipes that cover almost every bit of the ceiling. The pub is as old as the [[town|IronHill]] itself<<if $player neq "goblin">>, and the tavern's owners never adopted the newer clockwork technology used elsewhere.\u000a\u000aThe locally brewed ale is well regarded<<endif>>.\u000a<<if $player eq "knight">>\u000a  <<if $knight_progress>>A moment passes. You suddenly hear commotion from the direction of the [[marketplace|market]]!\u000a  <<else>><<set $knight_progress=1>><<set $time = "midday">>No one is making trouble here. You step into the street and [[continue|bank]] on your way.\u000a  <<endif>>\u000a<<elseif $player eq "goblin">>\u000a  You see a man standing behind a long table catching a frothing liquid in glass mugs. Suddenly thirsty, you start to make your way across the room to him, but everyone turns to stare at you and the bartender gives you a hostile glare. Feeling threatened, you hurry back out into the [[street|market]].\u000a<<elseif $player eq "gnome">>\u000a  You wish you could slake your thirst with a mug of ale, but you do not have any coin. You'll have to try and sell something in the [[market]] first.\u000a<<else>>\u000a  <<back>>\u000a<<endif>>
+V<<display "Status">>\u000a\u000aThe volume of noisy chatter in Iron Hill tavern is exceded only by the loud screeching of the aging steam pipes that cover almost every bit of the ceiling. The pub is as old as the [[town|IronHill]] itself<<if $player neq "goblin">> and the tavern's owners never adopted the newer clockwork technology used elsewhere.\u000a\u000aThe locally brewed ale is well regarded<<endif>>.\u000a<<if $player eq "knight">>\u000a  <<if $knight_progress>>A moment passes. You suddenly hear commotion from the direction of the [[marketplace|market]]!\u000a  <<else>><<set $knight_progress=1>><<set $time = "midday">>No one is making trouble here. You step into the street and [[continue|bank]] on your way.\u000a  <<endif>>\u000a<<elseif $player eq "goblin">>\u000a  You see a man standing behind a long table catching a frothing liquid in glass mugs. Suddenly thirsty, you start to make your way across the room to him, but everyone turns to stare at you and the bartender gives you a hostile glare. Feeling threatened, you hurry back out into the [[street|market]].\u000a<<elseif $player eq "gnome">>\u000a  You wish you could slake your thirst with a mug of ale, but you do not have any coin. You'll have to try and sell something in the [[market]] first.\u000a<<else>>\u000a  <<back>>\u000a<<endif>>
 p401
 sg21
 Vtavern
@@ -1302,9 +1302,9 @@ g24
 ((I2014
 I1
 I26
+I13
+I16
 I14
-I26
-I0
 I6
 I26
 I1
@@ -1335,14 +1335,14 @@ I00
 sg13
 (lp413
 F900.0
-aF415.0
+aF416.25
 asg15
 (itiddlywiki
 Tiddler
 p414
 (dp415
 g19
-V<<display "Status">>\u000a<<if $player neq "goblin">>\u000aThe bank is the grandest and most revered building in town, it's sheer size making it seem to hang over the neighbouring shops. Stone columns are carved from top to bottom with the faces of the richest Gnomes history has known.\u000a<<else>>\u000aThe bank is the largest building in town, and has an accordingly large spirit. The bank spirit is always hungry for more gnomes to visit it and fill it with paper and shiny disks, though you don't really know why. \u000a<<endif>>\u000a\u000a<<if $player eq "knight">>\u000a  <<if $knight_progress>>A moment passes. You suddenly hear commotion from the direction of the [[marketplace|market]]!\u000a  <<else>><<set $knight_progress=1>><<set $time = "midday">>No one is making trouble here. You step into the street and [[continue|tavern]] on your way.\u000a  <<endif>>\u000a<<else>>\u000a\u000a  <<back>>\u000a<<endif>>
+V<<display "Status">>\u000a<<if $player neq "goblin">>\u000aThe bank is the grandest and most revered building in town, it's sheer size making it seem to hang over the neighbouring shops. Stone columns are carved from top to bottom with the faces of the richest Gnomes history has known.\u000a<<else>>The bank is the largest building in town, and has an accordingly large spirit. The bank spirit is always hungry for more gnomes to visit it and fill it with paper and shiny disks, though you don't really know why. \u000a<<endif>>\u000a\u000a<<if $player eq "knight">>\u000a  <<if $knight_progress>>A moment passes. You suddenly hear commotion from the direction of the [[marketplace|market]]!\u000a  <<else>><<set $knight_progress=1>><<set $time = "midday">>No one is making trouble here. You step into the street and [[continue|tavern]] on your way.\u000a  <<endif>>\u000a<<else>>\u000a  <<back>>\u000a<<endif>>
 p416
 sg21
 Vbank
@@ -1352,9 +1352,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I50
-I19
+I10
+I47
+I24
 I6
 I26
 I1
@@ -1492,7 +1492,7 @@ Tiddler
 p459
 (dp460
 g19
-V<<display "Status">>\u000a\u000ayou run away down the confusing narrow streets with guards chasing. eventually you get caught, all your belongings confiscated and taken into [[custody|goblinArrested]].
+V<<display "Status">>\u000a\u000aYou twist your body and retreat as fast as you can between two market stalls, bursting out onto a narrow street. You're a little disoriented by the shape of the town, but try desperately to escape from the guards chasing you. You are too unfamiliar with the terrain, and are soon caught. All of the things you were carrying are taken from you, and you are put [[in a small room|goblinArrested]].
 p461
 sg21
 VgoblinRunAway
@@ -1502,9 +1502,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I20
-I46
+I16
+I26
+I5
 I6
 I26
 I1
@@ -1592,7 +1592,7 @@ Tiddler
 p489
 (dp490
 g19
-V<<display "Status">>\u000a\u000ayou call the guards and they chase the goblin. they disappear out of sight around a corner\u000a\u000a[[Have a whinge|gnomeComplain]]
+V<<display "Status">>\u000a\u000aYou call for the town guards. Armoured gnomes appear swiftly and chase the goblin out of sight around the corner. You really hope none of your stock has been damaged or devalued in the exchange.\u000a\u000aToday is not going as well as it could.\u000a\u000a[[Have a whinge|gnomeComplain]]
 p491
 sg21
 VgnomeCallGuards
@@ -1602,9 +1602,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I49
-I48
+I15
+I36
+I53
 I6
 I26
 I1
@@ -1642,7 +1642,7 @@ Tiddler
 p504
 (dp505
 g19
-V<<display "Status">>\u000a\u000ayou attempt to persuade the goblin of the value of the trade. you gesture to the ill fit of his armour, and talk about how good gears are. <<if $goblin_reaction eq "take">>he seems affronted and walks away, taking your items with him.\u000a\u000a[[Chase him|gnomeChase]]\u000a[[Call guards|gnomeCallGuards]]\u000a<<else>>he seems confused, and drops your precious items in the dust, before marching away.\u000a\u000a[[Yell at the goblin|gnomeYell]]\u000a<<endif>>
+V<<display "Status">>\u000a\u000aYou attempt to persuade the goblin of the value of the trade. Clearly, you have offered something great. The goblin doesn't really need the knight armour anyway: knights are significantly larger than gnomes or goblins, so there's no way the armour is actually useful. You gesture to the ill fit of the armour, trying to get your point across. <<if $goblin_reaction eq "take">>The goblin seems affronted by your commentary and walks away, taking your items with him. You need those!\u000a\u000a[[Chase him|gnomeChase]]\u000a[[Call guards|gnomeCallGuards]]\u000a<<else>>The goblin seems especially confused, and drops your precious items in the dust, before marching away. That was really not how you wanted things to go at all.\u000a\u000a[[Yell at the goblin|gnomeYell]]\u000a<<endif>>
 p506
 sg21
 VgnomeConvince
@@ -1652,9 +1652,9 @@ g24
 ((I2014
 I1
 I26
-I12
-I10
-I16
+I15
+I31
+I43
 I6
 I26
 I1
@@ -1692,7 +1692,7 @@ Tiddler
 p519
 (dp520
 g19
-V<<silently>>\u000a<<set $gnome_hasGears = true>>\u000a<<set $gnome_hasMetal = true>>\u000a<<endsilently>><<display "Status">>\u000a\u000ayou yell after the retreating goblin. the guards notice and converge on him. as he tries to run away, you pick your [[items|gnomeInventory]] back up from the ground.\u000a\u000a[[Have a whinge|gnomeComplain]]
+V<<silently>>\u000a<<set $gnome_hasGears = true>>\u000a<<set $gnome_hasMetal = true>>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou yell after the retreating goblin. Armoured gnomes hear your shouts, and converge on the goblin. In all of the noise your stock is forgotten, and you [[pick it up|gnomeInventory]] after the commotion has passed.\u000a\u000a[[Have a whinge|gnomeComplain]]
 p521
 sg21
 VgnomeYell
@@ -1702,9 +1702,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I49
-I16
+I15
+I57
+I18
 I6
 I26
 I1
@@ -1735,14 +1735,14 @@ I00
 sg13
 (lp533
 F1621.0
-aF673.0
+aF675.0
 asg15
 (itiddlywiki
 Tiddler
 p534
 (dp535
 g19
-V<<silently>>\u000a	<<set $time = "evening">>\u000a	<<set $goblin_progress = 3>>\u000a<<endsilently>><<display "Status>>\u000a\u000alocked in your cell, with no view of the sky, you lose track of time. eventually you hear heavy footsteps coming your way, and look up to see the hulking figure of a [[knight|Knight]] headed towards your cell.
+V<<silently>>\u000a	<<set $time = "evening">>\u000a	<<set $goblin_progress = 3>>\u000a<<endsilently>><<display "Status>>\u000a\u000aLocked in the small room, with no view of the sky, you soon lose track of time. It's very lonely in here without the spirits you had been carrying with you.\u000a\u000aEventually, you hear heavy footsteps approach. You look up to see a [[knight|Knight]] in the doorway.
 p536
 sg21
 VgoblinArrested
@@ -1752,9 +1752,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I21
-I59
+I16
+I28
+I43
 I6
 I26
 I1
@@ -1792,7 +1792,7 @@ Tiddler
 p549
 (dp550
 g19
-V<<silently>>\u000a<<set $time = "afternoon">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou complain loudly about the situation to anyone that will listen. A [[knight|Knight]] comes over to see what the fuss is about.\u000a\u000a[["A goblin stole from me!"|gnomeExplainStolen]]
+V<<silently>>\u000a<<set $time = "afternoon">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou complain loudly about the situation to anyone that will listen. A [[knight|Knight]] comes over to see what the fuss is about. Knights are known to be protective of those wronged (as well as keen on collecting artifacts of their past), so you feel the knight will respect your predicament.\u000a\u000a[[Mention the goblin thief|gnomeExplainStolen]]
 p551
 sg21
 VgnomeComplain
@@ -1802,9 +1802,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I58
-I44
+I15
+I43
+I46
 I6
 I26
 I1
@@ -1842,7 +1842,7 @@ Tiddler
 p564
 (dp565
 g19
-V<<display "Status">>\u000a\u000aThe knight asks you what the goblin took.\u000a\u000a[["Everything! My money, and my goods."|gnomeExplainEverything]]\u000a[["Just some trinkets, I was trying to trade with it"|gnomeExplainSome]]\u000a<<if $gnome_reaction = "drop">>[["Well.. now that you ask.. nothing really"|gnomeExplainNothing]]<<endif>>
+V<<display "Status">>\u000a\u000aThe knight asks you what the goblin took. You were hoping the previous explanation would be sufficient.\u000a\u000a[["Everything! My money, and my goods."|gnomeExplainEverything]]\u000a[["Just some trinkets, I was trying to trade with it"|gnomeExplainSome]]\u000a<<if $gnome_reaction = "drop">>[["Well.. now that you ask.. nothing really"|gnomeExplainNothing]]<<endif>>
 p566
 sg21
 VgnomeExplainStolen
@@ -1852,9 +1852,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I4
-I5
+I15
+I46
+I42
 I6
 I26
 I1
@@ -1884,15 +1884,15 @@ g12
 I00
 sg13
 (lp578
-F1835.0
-aF282.0
+F1833.75
+aF280.75
 asg15
 (itiddlywiki
 Tiddler
 p579
 (dp580
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "everything">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou try to convince the knight that the goblin took everything, blaming your current situation entirely on that. The knight looks unconvinced.
+V<<silently>>\u000a<<set $gnome_reaction = "everything">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou try to convince the knight that the goblin took everything, so that you don't have to admit to having almost nothing to your name. The knight is looking pretty unconvinced, you'll either need to hope your luck is strong enough without any coin, or just give up and tell the truth.\u000a\u000a[[Embelish your lie|gnomeTalking]]\u000a<<if $goblin_reaction = "take">>\u000a[[Admit the truth|gnomeExplainSome]]\u000a<<else>>\u000a[[Admit the truth|gnomeExplainNothing]]\u000a<<endif>>
 p581
 sg21
 VgnomeExplainEverything
@@ -1902,9 +1902,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I2
-I18
+I15
+I49
+I0
 I6
 I26
 I1
@@ -1934,15 +1934,15 @@ g12
 I00
 sg13
 (lp593
-F1922.0
-aF150.0
+F1992.0
+aF147.0
 asg15
 (itiddlywiki
 Tiddler
 p594
 (dp595
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "some">>\u000a<<endsilently>><<display "Status">>\u000a\u000ado some stuff with ifs to explain what was actually taken
+V<<silently>>\u000a<<set $gnome_reaction = "some">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou explain the manner in which you tried to conduct a trade with the goblin, and how unsuccessful it was.<<if $goblin_reaction = "drop">> Although you said earlier that the goblin took your stock, you're going to need to elaborate.\u000a[[Explain everything truthfully|gnomeExplainNothing]]\u000a[[Embelish your lie|gnomeTalking]]\u000a<<else>> You'd better explain what happened with the guards too.\u000a[[Explain everything|gnomeTalking]]\u000a<<endif>>
 p596
 sg21
 VgnomeExplainSome
@@ -1952,9 +1952,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I2
-I55
+I16
+I3
+I42
 I6
 I26
 I1
@@ -1992,7 +1992,7 @@ Tiddler
 p609
 (dp610
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "nothing">>\u000a<<endsilently>><<display "Status">>\u000a\u000aAs you begin to calm down, you realise that in fact the goblin took nothing at all. 
+V<<silently>>\u000a<<set $gnome_reaction = "nothing">>\u000a<<endsilently>><<display "Status">>\u000a\u000aAs you begin to calm down, you realise that in fact the goblin took nothing at all. You better start from the beginning.\u000a\u000a[[Explain everything|gnomeTalking]]
 p611
 sg21
 VgnomeExplainNothing
@@ -2002,9 +2002,9 @@ g24
 ((I2014
 I1
 I26
-I14
-I5
-I2
+I15
+I51
+I24
 I6
 I26
 I1
@@ -2029,10 +2029,360 @@ tp618
 (dp619
 tp620
 Rp621
+sbsa(dp622
+g12
+I00
+sg13
+(lp623
+F2245.0
+aF127.0
+asg15
+(itiddlywiki
+Tiddler
+p624
+(dp625
+g19
+V<<silently>>\u000a<<set $gnome_progress = 2>>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou wonder what the [[knight|Knight]] thinks about all of this.
+p626
+sg21
+VgnomeTalking
+p627
+sg23
+g24
+((I2014
+I1
+I26
+I15
+I52
+I34
+I6
+I26
+I1
+tp628
+(dp629
+tp630
+Rp631
+sg29
+(lp632
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I25
+I6
+I6
+I26
+I1
+tp633
+(dp634
+tp635
+Rp636
+sbsa(dp637
+g12
+I00
+sg13
+(lp638
+F998.0
+aF889.0
+asg15
+(itiddlywiki
+Tiddler
+p639
+(dp640
+g19
+V<<display "Status>>\u000a\u000a<<if $gnome_reaction eq "nothing">>The gnome seems to deflate slightly as it admits that the goblin had actually taken nothing at all.\u000a\u000a[["Why are you so interested in this goblin?"|knightInterestGoblin]]\u000a<<elif $gnome_reaction eq "everything">>The gnome claims that the goblin had taken everything of value. This story seems farfetched, but the gnome certainly seems down on it's luck.\u000a\u000a[["Why were you even trying to trade with a goblin?"|knightInterestGoblin]]\u000a<<else>>The gnome explains that several of his trinkets intended for bartering had been taken. This is hardly surprising, as goblins have a reputation for failing to understand the concept of trading.\u000a\u000a[["Why were you even trying to trade with a goblin?"|knightInterestGoblin]]\u000a<<endif>>
+p641
+sg21
+VknightAskGnome
+p642
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I35
+I53
+I6
+I26
+I1
+tp643
+(dp644
+tp645
+Rp646
+sg29
+(lp647
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I28
+I18
+I6
+I26
+I1
+tp648
+(dp649
+tp650
+Rp651
+sbsa(dp652
+g12
+I00
+sg13
+(lp653
+F1137.0
+aF886.0
+asg15
+(itiddlywiki
+Tiddler
+p654
+(dp655
+g19
+V<<silently>>\u000a<<set $knight_progress = 2>>\u000a<<set $time = "afternoon">>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe gnome reluctantly explains that the goblin had been wearing a knight artifact.\u000a\u000a[[Find the goblin!|knightFindGoblin]]
+p656
+sg21
+VknightInterestGoblin
+p657
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I50
+I23
+I6
+I26
+I1
+tp658
+(dp659
+tp660
+Rp661
+sg29
+(lp662
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I36
+I2
+I6
+I26
+I1
+tp663
+(dp664
+tp665
+Rp666
+sbsa(dp667
+g12
+I00
+sg13
+(lp668
+F1337.0
+aF913.0
+asg15
+(itiddlywiki
+Tiddler
+p669
+(dp670
+g19
+V<<display "Status>>\u000a\u000aAfter hours of searching, you barge your way into the prison, and demand to see the goblin. After some convincing, the guards let you past.\u000a\u000aYou find the poor [[goblin|Goblin]] looking utterly confused and miserable in a tiny cell.\u000a<<if $goblin_progress gte 3>>\u000a[[Free the goblin|knightFreeGoblin]]\u000a[[Interrogate the goblin|knightInterrogateGoblin]]\u000a<<endif>>
+p671
+sg21
+VknightFindGoblin
+p672
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I55
+I52
+I6
+I26
+I1
+tp673
+(dp674
+tp675
+Rp676
+sg29
+(lp677
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I50
+I45
+I6
+I26
+I1
+tp678
+(dp679
+tp680
+Rp681
+sbsa(dp682
+g12
+I00
+sg13
+(lp683
+F819.0
+aF772.0
+asg15
+(itiddlywiki
+Tiddler
+p684
+(dp685
+g19
+V<<set $knight_reaction = "free">><<display "Status">>\u000a\u000aYou effortlessly break the bars containing the goblin. With difficulty you manage to ask it where the armour was.\u000a\u000a[[Get the armour|knightGetArmour]]
+p686
+sg21
+VknightFreeGoblin
+p687
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I58
+I57
+I6
+I26
+I1
+tp688
+(dp689
+tp690
+Rp691
+sg29
+(lp692
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I57
+I0
+I6
+I26
+I1
+tp693
+(dp694
+tp695
+Rp696
+sbsa(dp697
+g12
+I00
+sg13
+(lp698
+F1620.0
+aF866.0
+asg15
+(itiddlywiki
+Tiddler
+p699
+(dp700
+g19
+V<<set $knight_reaction = "interrogate">><<display "Status">>\u000a\u000aWith difficulty you manage to ask the goblin where the armour was.\u000a\u000a[[Get the armour|knightGetArmour]]
+p701
+sg21
+VknightInterrogateGoblin
+p702
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I58
+I23
+I6
+I26
+I1
+tp703
+(dp704
+tp705
+Rp706
+sg29
+(lp707
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I57
+I5
+I6
+I26
+I1
+tp708
+(dp709
+tp710
+Rp711
+sbsa(dp712
+g12
+I00
+sg13
+(lp713
+F1806.0
+aF811.0
+asg15
+(itiddlywiki
+Tiddler
+p714
+(dp715
+g19
+VYou win!
+p716
+sg21
+VknightGetArmour
+p717
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I59
+I41
+I6
+I26
+I1
+tp718
+(dp719
+tp720
+Rp721
+sg29
+(lp722
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I59
+I20
+I6
+I26
+I1
+tp723
+(dp724
+tp725
+Rp726
 sbsasS'scale'
-p622
-F1.0
+p727
+F0.8
 sS'snapping'
-p623
+p728
 I00
 ss.
