@@ -934,8 +934,8 @@ g12
 I00
 sg13
 (lp293
-F541.0
-aF573.0
+F538.0
+aF575.0
 asg15
 (itiddlywiki
 Tiddler
@@ -1092,7 +1092,7 @@ Tiddler
 p339
 (dp340
 g19
-V<<set $player = "knight">>\u000a<<goto "knightStart">>\u000a<<if $knight_progress eq 1 >>\u000a	<<goto "knightHelpGnome">>\u000a<<endif>>
+V<<set $player = "knight">>\u000a<<goto "knightStart">>\u000a<<if $knight_progress eq 1 >>\u000a	<<goto "knightHelpGnome">>\u000a<<elif $knight_progress eq 2 >>\u000a	<<goto "knightFindGoblin">>\u000a<<endif>>
 p341
 sg21
 VKnight
@@ -1102,9 +1102,9 @@ g24
 ((I2014
 I1
 I26
-I13
-I52
-I48
+I14
+I56
+I31
 I6
 I26
 I1
@@ -1785,7 +1785,7 @@ I00
 sg13
 (lp548
 F1621.0
-aF673.0
+aF675.0
 asg15
 (itiddlywiki
 Tiddler
@@ -2142,7 +2142,7 @@ Tiddler
 p654
 (dp655
 g19
-V
+V<<display "Status>>\u000a\u000a<<if $gnome_reaction eq "nothing">>The gnome seems to deflate slightly as it admits that the goblin had actually taken nothing at all.\u000a\u000a[["Why are you so interested in this goblin?"|knightInterestGoblin]]\u000a<<elif $gnome_reaction eq "everything">>The gnome claims that the goblin had taken everything of value. This story seems farfetched, but the gnome certainly seems down on it's luck.\u000a\u000a[["Why were you even trying to trade with a goblin?"|knightInterestGoblin]]\u000a<<else>>The gnome explains that several of his trinkets intended for bartering had been taken. This is hardly surprising, as goblins have a reputation for failing to understand the concept of trading.\u000a\u000a[["Why were you even trying to trade with a goblin?"|knightInterestGoblin]]\u000a<<endif>>
 p656
 sg21
 VknightAskGnome
@@ -2153,8 +2153,8 @@ g24
 I1
 I26
 I14
-I28
-I18
+I35
+I53
 I6
 I26
 I1
@@ -2165,11 +2165,274 @@ Rp661
 sg29
 (lp662
 sg31
-g661
+g24
+((I2014
+I1
+I26
+I14
+I28
+I18
+I6
+I26
+I1
+tp663
+(dp664
+tp665
+Rp666
+sbsa(dp667
+g12
+I00
+sg13
+(lp668
+F1137.0
+aF886.0
+asg15
+(itiddlywiki
+Tiddler
+p669
+(dp670
+g19
+V<<silently>>\u000a<<set $knight_progress = 2>>\u000a<<set $time = "afternoon">>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe gnome reluctantly explains that the goblin had been wearing a knight artifact.\u000a\u000a[[Find the goblin!|knightFindGoblin]]
+p671
+sg21
+VknightInterestGoblin
+p672
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I50
+I23
+I6
+I26
+I1
+tp673
+(dp674
+tp675
+Rp676
+sg29
+(lp677
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I36
+I2
+I6
+I26
+I1
+tp678
+(dp679
+tp680
+Rp681
+sbsa(dp682
+g12
+I00
+sg13
+(lp683
+F1337.0
+aF913.0
+asg15
+(itiddlywiki
+Tiddler
+p684
+(dp685
+g19
+V<<display "Status>>\u000a\u000aAfter hours of searching, you barge your way into the prison, and demand to see the goblin. After some convincing, the guards let you past.\u000a\u000aYou find the poor [[goblin|Goblin]] looking utterly confused and miserable in a tiny cell.\u000a<<if $goblin_progress gte 3>>\u000a[[Free the goblin|knightFreeGoblin]]\u000a[[Interrogate the goblin|knightInterrogateGoblin]]\u000a<<endif>>
+p686
+sg21
+VknightFindGoblin
+p687
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I55
+I52
+I6
+I26
+I1
+tp688
+(dp689
+tp690
+Rp691
+sg29
+(lp692
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I50
+I45
+I6
+I26
+I1
+tp693
+(dp694
+tp695
+Rp696
+sbsa(dp697
+g12
+I00
+sg13
+(lp698
+F819.0
+aF772.0
+asg15
+(itiddlywiki
+Tiddler
+p699
+(dp700
+g19
+V<<set $knight_reaction = "free">><<display "Status">>\u000a\u000aYou effortlessly break the bars containing the goblin. With difficulty you manage to ask it where the armour was.\u000a\u000a[[Get the armour|knightGetArmour]]
+p701
+sg21
+VknightFreeGoblin
+p702
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I58
+I57
+I6
+I26
+I1
+tp703
+(dp704
+tp705
+Rp706
+sg29
+(lp707
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I57
+I0
+I6
+I26
+I1
+tp708
+(dp709
+tp710
+Rp711
+sbsa(dp712
+g12
+I00
+sg13
+(lp713
+F1620.0
+aF866.0
+asg15
+(itiddlywiki
+Tiddler
+p714
+(dp715
+g19
+V<<set $knight_reaction = "interrogate">><<display "Status">>\u000a\u000aWith difficulty you manage to ask the goblin where the armour was.\u000a\u000a[[Get the armour|knightGetArmour]]
+p716
+sg21
+VknightInterrogateGoblin
+p717
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I58
+I23
+I6
+I26
+I1
+tp718
+(dp719
+tp720
+Rp721
+sg29
+(lp722
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I57
+I5
+I6
+I26
+I1
+tp723
+(dp724
+tp725
+Rp726
+sbsa(dp727
+g12
+I01
+sg13
+(lp728
+F1806.0
+aF811.0
+asg15
+(itiddlywiki
+Tiddler
+p729
+(dp730
+g19
+VYou win!
+p731
+sg21
+VknightGetArmour
+p732
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I59
+I41
+I6
+I26
+I1
+tp733
+(dp734
+tp735
+Rp736
+sg29
+(lp737
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I59
+I20
+I6
+I26
+I1
+tp738
+(dp739
+tp740
+Rp741
 sbsasS'scale'
-p663
+p742
 F1.0
 sS'snapping'
-p664
+p743
 I00
 ss.
