@@ -5,7 +5,7 @@ S''
 p2
 sS'saveDestination'
 p3
-S'C:\\Users\\Sophie\\Documents\\GitHub\\IronHill\\IronHill.tws'
+VC:\u005cUsers\u005cFinn\u005cDocuments\u005cGitHub\u005cIronHill\u005cIronHill.tws
 p4
 sS'target'
 p5
@@ -342,7 +342,7 @@ Tiddler
 p114
 (dp115
 g19
-V<<set $player = "gnome">>\u000a<<goto "gnomeStart">>\u000a<<if $gnome_progress eq 1 >>\u000a	<<goto "gnomeSeeGoblin">>\u000a<<endif>>
+V<<set $player = "gnome">>\u000a<<goto "gnomeStart">>\u000a<<if $gnome_progress eq 1 >>\u000a	<<goto "gnomeSeeGoblin">>\u000a<<elif $gnome_progress eq 2>>\u000a	<<goto "gnomeTalking">>\u000a<<endif>>
 p116
 sg21
 VGnome
@@ -352,9 +352,9 @@ g24
 ((I2014
 I1
 I26
-I3
-I29
-I27
+I14
+I25
+I49
 I6
 I26
 I1
@@ -1192,7 +1192,7 @@ Tiddler
 p369
 (dp370
 g19
-V<<silently>>\u000a	<<$knight_progress = 1>>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou spot the source of commotion. A [[gnome|Gnome]] is loudly complaining that he was robbed by a [[goblin|Goblin]].\u000a\u000a<<if $goblin_progress eq 2>>gob_prog=2<<endif>>
+V<<silently>>\u000a	<<$knight_progress = 1>>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou spot the source of commotion. A [[gnome|Gnome]] is loudly complaining that he was robbed by a [[goblin|Goblin]].\u000a<<if $gnome_progress gte 2>>\u000a[[Ask what was stolen|knightAskGnome]]\u000a<<endif>>
 p371
 sg21
 VknightHelpGnome
@@ -1202,9 +1202,9 @@ g24
 ((I2014
 I1
 I26
+I14
+I28
 I13
-I52
-I8
 I6
 I26
 I1
@@ -1281,7 +1281,7 @@ tp395
 Rp396
 sbsa(dp397
 g12
-I01
+I00
 sg13
 (lp398
 F497.0
@@ -1942,7 +1942,7 @@ Tiddler
 p594
 (dp595
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "everything">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou try to convince the knight that the goblin took everything, blaming your current situation entirely on that. The knight looks unconvinced.
+V<<silently>>\u000a<<set $gnome_reaction = "everything">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou try to convince the knight that the goblin took everything, blaming your current situation entirely on that. The knight looks unconvinced.\u000a\u000a[[Embelish your lie|gnomeTalking]]\u000a<<if $goblin_reaction = "take">>\u000a[[Admit the truth|gnomeExplainSome]]\u000a<<else>>\u000a[[Admit the truth|gnomeExplainNothing]]\u000a<<endif>>
 p596
 sg21
 VgnomeExplainEverything
@@ -1953,8 +1953,8 @@ g24
 I1
 I26
 I14
-I2
-I18
+I25
+I1
 I6
 I26
 I1
@@ -1984,15 +1984,15 @@ g12
 I00
 sg13
 (lp608
-F1922.0
-aF150.0
+F1992.0
+aF147.0
 asg15
 (itiddlywiki
 Tiddler
 p609
 (dp610
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "some">>\u000a<<endsilently>><<display "Status">>\u000a\u000ado some stuff with ifs to explain what was actually taken
+V<<silently>>\u000a<<set $gnome_reaction = "some">>\u000a<<endsilently>><<display "Status">>\u000a\u000ado some stuff with ifs to explain what was actually taken\u000a<<if $goblin_reaction = "take">>\u000a[[Explain everything|gnomeTalking]]\u000a<<else>>\u000a[[Embelish your lie|gnomeTalking]]\u000a<<endif>>
 p611
 sg21
 VgnomeExplainSome
@@ -2003,8 +2003,8 @@ g24
 I1
 I26
 I14
-I2
-I55
+I24
+I17
 I6
 I26
 I1
@@ -2042,7 +2042,7 @@ Tiddler
 p624
 (dp625
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "nothing">>\u000a<<endsilently>><<display "Status">>\u000a\u000aAs you begin to calm down, you realise that in fact the goblin took nothing at all. 
+V<<silently>>\u000a<<set $gnome_reaction = "nothing">>\u000a<<endsilently>><<display "Status">>\u000a\u000aAs you begin to calm down, you realise that in fact the goblin took nothing at all.\u000a\u000a[[Explain everything|gnomeTalking]]
 p626
 sg21
 VgnomeExplainNothing
@@ -2053,8 +2053,8 @@ g24
 I1
 I26
 I14
-I5
-I2
+I22
+I59
 I6
 I26
 I1
@@ -2079,10 +2079,97 @@ tp633
 (dp634
 tp635
 Rp636
+sbsa(dp637
+g12
+I00
+sg13
+(lp638
+F2245.0
+aF127.0
+asg15
+(itiddlywiki
+Tiddler
+p639
+(dp640
+g19
+V<<silently>>\u000a<<set $gnome_progress = 2>>\u000a<<endsilently>><<display "Status">>\u000a\u000atalk with the [[knight|Knight]]
+p641
+sg21
+VgnomeTalking
+p642
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I27
+I6
+I6
+I26
+I1
+tp643
+(dp644
+tp645
+Rp646
+sg29
+(lp647
+sg31
+g24
+((I2014
+I1
+I26
+I14
+I25
+I6
+I6
+I26
+I1
+tp648
+(dp649
+tp650
+Rp651
+sbsa(dp652
+g12
+I00
+sg13
+(lp653
+F998.0
+aF889.0
+asg15
+(itiddlywiki
+Tiddler
+p654
+(dp655
+g19
+V
+p656
+sg21
+VknightAskGnome
+p657
+sg23
+g24
+((I2014
+I1
+I26
+I14
+I28
+I18
+I6
+I26
+I1
+tp658
+(dp659
+tp660
+Rp661
+sg29
+(lp662
+sg31
+g661
 sbsasS'scale'
-p637
+p663
 F1.0
 sS'snapping'
-p638
+p664
 I00
 ss.
