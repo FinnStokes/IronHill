@@ -5,7 +5,7 @@ S''
 p2
 sS'saveDestination'
 p3
-VC:\u005cUsers\u005cCpt Janeway\u005cDocuments\u005cGitHub\u005cIronHill\u005cIronHill.tws
+S'C:\\Users\\Sophie\\Documents\\GitHub\\IronHill\\IronHill.tws'
 p4
 sS'target'
 p5
@@ -642,7 +642,7 @@ Tiddler
 p204
 (dp205
 g19
-V<<display "Status">>\u000a\u000ayou are at the outskirts of the city, there is stuff to [[look]] at, and a dirt road in towards the [[market]].
+V<<display "Status">>\u000a\u000aYou are at the outskirts of the [[town|IronHill]]. <<if $player eq "goblin">>The spirits of the buildings and gnomes give the town a glow completely different to the natural environments you are used to. <<else>>There is really not much going on out here.\u000a<<endif>>\u000a\u000aYou can see the [[airship|theAlatus]] rising above the township, and a dirt road in towards the [[market]].
 p206
 sg21
 Voutskirts
@@ -652,9 +652,9 @@ g24
 ((I2014
 I1
 I26
-I4
-I26
-I18
+I11
+I36
+I54
 I6
 I26
 I1
@@ -695,16 +695,16 @@ g19
 V<i>It is <<print $time>>. You are the <<print $player>>.</i>
 p221
 sg21
-VStatus.
+VStatus
 p222
 sg23
 g24
 ((I2014
 I1
 I26
-I11
-I13
-I1
+I3
+I5
+I43
 I6
 I26
 I1
@@ -892,7 +892,7 @@ Tiddler
 p279
 (dp280
 g19
-V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Walk away|goblinWalkAway]]\u000a[[Try to hand them back|goblinReturn]]
+V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Thank him for the gift and walk away|goblinWalkAway]]\u000a[[Run before he changes his mind|goblinRunAway]]
 p281
 sg21
 VgoblinAccept
@@ -902,9 +902,9 @@ g24
 ((I2014
 I1
 I26
-I11
-I5
-I35
+I9
+I50
+I52
 I6
 I26
 I1
@@ -985,25 +985,25 @@ I00
 sg13
 (lp308
 F1271.0
-aF590.0
+aF591.0
 asg15
 (itiddlywiki
 Tiddler
 p309
 (dp310
 g19
-V<<set $goblin_attemptReturn = true>><<display "Status">>\u000a\u000aalthough the trinkets are shiny they have no use to you. you offer them back to the gnome, but he refuses to take them and points at you.\u000a\u000a[[Place the items on the ground|goblinDrop]]\u000a[[Carry them with you|goblinWalkAway]]
+V<<silently>>\u000a<<set $goblin_progress = 2>>\u000a<<endsilently>><<display "Status">>\u000a\u000ayou bolt across the market, knocking tables over as you go. guards close in on your position.
 p311
 sg21
-VgoblinReturn
+VgoblinRunAway
 p312
 sg23
 g24
 ((I2014
 I1
 I26
-I11
-I12
+I9
+I30
 I8
 I6
 I26
@@ -1034,15 +1034,15 @@ g12
 I00
 sg13
 (lp323
-F1201.0
-aF737.0
+F1123.0
+aF739.0
 asg15
 (itiddlywiki
 Tiddler
 p324
 (dp325
 g19
-V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_reaction = "take">>\u000a<<endsilently>><<display "Status">>\u000a\u000aThe gnome seems distressed as you begin to walk away and he calls for the market's guards. You [[panic and run!|goblinRunAway]]
+V<<display "Status">>\u000a\u000aThe gnome seems distressed as you begin to walk away and he calls for the market's guards. You [[panic and run!|goblinRunAway]]
 p326
 sg21
 VgoblinWalkAway
@@ -1052,9 +1052,9 @@ g24
 ((I2014
 I1
 I26
-I11
-I16
-I45
+I9
+I34
+I23
 I6
 I26
 I1
@@ -1231,7 +1231,7 @@ tp380
 Rp381
 sbsa(dp382
 g12
-I00
+I01
 sg13
 (lp383
 F295.0
@@ -1242,7 +1242,7 @@ Tiddler
 p384
 (dp385
 g19
-V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000aIn a rugged valley to the west of the mainland sits the town of Iron Hill, it's industrial roots failing to detract from it's beauty. Iron and other metals are mined out of the wind-whipped cliffs that surround it. From the tallest peak on a clear day, the entire western archipelago can be seen below.\u000a\u000aGnomes inhabit this area, profiting from the deposits and the occasional markets.\u000a\u000a<<back>>
+V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000a<<if $player eq "gnome">>\u000aIron Hill is quite far west of home, but a little north of where your merchant airship went down. It seems like a prosperous area as a result of the mines, and should provide reasonable trading opportunities.\u000a<<elseif $player eq "goblin">> \u000aYou really don't know much about Gnome towns. This one sits in the bottom of a valley surrounded by cliffs filled with metals. The gnomes seem to enjoy taking the bits of metal out of the cliff and freeing the metal spirits to be carried around.\u000a<<else>>In a rugged valley in the west of the Gnome civilisation sits the town of Iron Hill, its industrial roots failing to detract from its beauty. Iron and other metals are mined out of the wind-whipped cliffs that surround it. From the tallest peak on a clear day, the entire western archipelago can be seen below.\u000a\u000aGnomes inhabit this area, profiting from the deposits and the occasional markets.\u000a<<endif>>\u000a\u000a<<back>>
 p386
 sg21
 VIronHill
@@ -1252,9 +1252,9 @@ g24
 ((I2014
 I1
 I26
-I8
-I25
-I1
+I11
+I55
+I54
 I6
 I26
 I1
@@ -1292,7 +1292,7 @@ Tiddler
 p399
 (dp400
 g19
-V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000aThe airship Alatus rises above the marketplace and Trading Hub. The large balloon that keeps the ship afloat is wreathed in steam pipes that transport power from one part of the ship to another. Large fans and propellers are visible, used to steer the ship when it's in motion.\u000a\u000aA ladder extends down into the Trading Hub.\u000a\u000a<<back>>
+V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000a<<if $player neq "goblin">>The airship Alatus rises above the marketplace and Trading Hub. The large balloon that keeps the ship afloat is wreathed in steam pipes that transport power from one part of the ship to another. Large fans and propellers are visible, used to steer the ship when it's in motion.\u000a\u000aA ladder extends down into the Trading Hub.\u000a<<else>>An airship rises above the gnome town, its spirit large and proud and beautiful. The curve of the balloon is covered in metal parts of different shapes, but you think that the physical appearance is nearly as pretty as the spirit itself. Unfortunately, you think it would be difficult to take the airship back to your clan to show them.\u000a\u000aA ladder extends down into the gnome building below the ship.\u000a<<endif>>\u000a\u000a<<back>>
 p401
 sg21
 VtheAlatus
@@ -1302,9 +1302,9 @@ g24
 ((I2014
 I1
 I26
-I10
-I26
-I52
+I11
+I44
+I24
 I6
 I26
 I1
@@ -1392,7 +1392,7 @@ Tiddler
 p429
 (dp430
 g19
-V<<display "Status">>\u000a<<if $player neq "goblin">>\u000aThe bank is the grandest and most revered building in town, it's sheer size making it seem to hang over the neighbouring shops. Stone columns are carved from top to bottom with the faces of the richest Gnomes history has known.\u000a<<else>>The bank is the largest building in town, and has an accordingly large spirit. The bank spirit is always hungry for more gnomes to visit it and fill it with paper and shiny disks, though you don't really know why. \u000a<<endif>>\u000a\u000a<<if $player eq "knight">>\u000a  <<if $knight_progress>>A moment passes. You suddenly hear commotion from the direction of the [[marketplace|market]]!\u000a  <<else>><<set $knight_progress=1>><<set $time = "midday">>No one is making trouble here. You step into the street and [[continue|tavern]] on your way.\u000a  <<endif>>\u000a<<else>>\u000a  <<back>>\u000a<<endif>>
+V<<display "Status">>\u000a<<if $player neq "goblin">>\u000aThe bank is the grandest and most revered building in town, it's sheer size making it seem to hang over the neighbouring shops. Stone columns are carved from top to bottom with the faces of the richest Gnomes history has known.\u000a<<else>>The bank is the largest building in town, and has an accordingly large spirit. The bank spirit is always hungry for more gnomes to visit it and fill it with paper and shiny disks, though you don't really know why. \u000a<<endif>>\u000a<<if $player eq "knight">>\u000a  <<if $knight_progress>>A moment passes. You suddenly hear commotion from the direction of the [[marketplace|market]]!\u000a  <<else>><<set $knight_progress=1>><<set $time = "midday">>No one is making trouble here. You step into the street and [[continue|tavern]] on your way.\u000a  <<endif>>\u000a<<else>>\u000a  <<back>>\u000a<<endif>>
 p431
 sg21
 Vbank
@@ -1402,9 +1402,9 @@ g24
 ((I2014
 I1
 I26
-I10
-I47
-I24
+I11
+I29
+I50
 I6
 I26
 I1
@@ -1479,97 +1479,10 @@ tp453
 (dp454
 tp455
 Rp456
-sbsa(dp457
-g12
-I00
-sg13
-(lp458
-F1413.0
-aF593.0
-asg15
-(itiddlywiki
-Tiddler
-p459
-(dp460
-g19
-V<<set $goblin_reaction = "drop">><<display "Status">>\u000a\u000ayou place the trinkets on the ground, and start to walk away. the gnome seems very agitated, and yells after you. the guards see the commotion and start heading towards you. you [[panic and run|goblinRunAway]]
-p461
-sg21
-VgoblinDrop
-p462
-sg23
-g24
-((I2014
-I1
-I26
-I11
-I17
-I10
-I6
-I26
-I1
-tp463
-(dp464
-tp465
-Rp466
-sg29
-(lp467
-sg31
-g24
-((I2014
-I1
-I26
-I11
-I12
-I32
-I6
-I26
-I1
-tp468
-(dp469
-tp470
-Rp471
-sbsa(dp472
-g12
-I00
-sg13
-(lp473
-F1460.0
-aF795.0
-asg15
-(itiddlywiki
-Tiddler
-p474
-(dp475
-g19
-V
-p476
-sg21
-VgoblinRunAway
-p477
-sg23
-g24
-((I2014
-I1
-I26
-I11
-I17
-I17
-I6
-I26
-I1
-tp478
-(dp479
-tp480
-Rp481
-sg29
-(lp482
-sg31
-g481
 sbsasS'scale'
-p483
-F1.0
+p457
+F0.8
 sS'snapping'
-p484
+p458
 I00
 ss.
