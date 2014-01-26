@@ -5,7 +5,7 @@ S''
 p2
 sS'saveDestination'
 p3
-VC:\u005cUsers\u005cFinn\u005cDocuments\u005cGitHub\u005cIronHill\u005cIronHill.tws
+S'C:\\Users\\Sophie\\Documents\\GitHub\\IronHill\\IronHill.tws'
 p4
 sS'target'
 p5
@@ -581,7 +581,7 @@ tp185
 Rp186
 sbsa(dp187
 g12
-I01
+I00
 sg13
 (lp188
 F248.0
@@ -642,7 +642,7 @@ Tiddler
 p204
 (dp205
 g19
-V<<display "Status">>\u000a\u000ayou are at the outskirts of the city, there is stuff to [[look]] at, and a dirt road in towards the [[market]].
+V<<display "Status">>\u000a\u000aYou are at the outskirts of the [[town|IronHill]]. <<if $player eq "goblin">>The spirits of the buildings and gnomes give the town a glow completely different to the natural environments you are used to. <<else>>There is really not much going on out here.\u000a<<endif>>\u000a\u000aYou can see the [[airship|theAlatus]] rising above the township, and a dirt road in towards the [[market]].
 p206
 sg21
 Voutskirts
@@ -652,9 +652,9 @@ g24
 ((I2014
 I1
 I26
-I4
-I26
-I18
+I14
+I1
+I9
 I6
 I26
 I1
@@ -892,7 +892,7 @@ Tiddler
 p279
 (dp280
 g19
-V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_attemptReturn = false>>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Walk away|goblinWalkAway]]\u000a[[Try to hand them back|goblinReturn]]
+V<<silently>>\u000a<<set $goblin_progress = 2 >>\u000a<<set $goblin_attemptReturn = false>>\u000a<<set $time = "midday" >>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou take the trinkets from the [[gnome|Gnome]] and inspect them. He eyes you expectantly.\u000a\u000a[[Thank him for the gift and walk away|goblinWalkAway]]\u000a[[Run before he changes his mind|goblinRunAway]]
 p281
 sg21
 VgoblinAccept
@@ -902,9 +902,9 @@ g24
 ((I2014
 I1
 I26
-I11
-I53
-I38
+I14
+I1
+I55
 I6
 I26
 I1
@@ -992,7 +992,7 @@ Tiddler
 p309
 (dp310
 g19
-V<<set $goblin_attemptReturn = true>><<display "Status">>\u000a\u000aalthough the trinkets are shiny they have no use to you. you offer them back to the gnome, but he refuses to take them and points at you.\u000a\u000a[[Place the items on the ground|goblinDrop]]\u000a[[Carry them with you|goblinWalkAway]]
+V<<set $goblin_attemptReturn = true>><<display "Status">>\u000a\u000aAlthough the trinkets are shiny they have no use to you. you offer them back to the gnome, but he refuses to take them and points at you.\u000a\u000a[[Place the items on the ground|goblinDrop]]\u000a[[Carry them with you|goblinWalkAway]]
 p311
 sg21
 VgoblinReturn
@@ -1002,9 +1002,9 @@ g24
 ((I2014
 I1
 I26
-I11
-I12
-I8
+I14
+I3
+I41
 I6
 I26
 I1
@@ -1242,7 +1242,7 @@ Tiddler
 p384
 (dp385
 g19
-V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000aIn a rugged valley to the west of the mainland sits the town of Iron Hill, it's industrial roots failing to detract from it's beauty. Iron and other metals are mined out of the wind-whipped cliffs that surround it. From the tallest peak on a clear day, the entire western archipelago can be seen below.\u000a\u000aGnomes inhabit this area, profiting from the deposits and the occasional markets.\u000a\u000a<<back>>
+V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000a<<if $player eq "gnome">>\u000aIron Hill is quite far west of home, but a little north of where your merchant airship went down. It seems like a prosperous area as a result of the mines, and should provide reasonable trading opportunities.\u000a<<elseif $player eq "goblin">>\u000aYou really don't know much about Gnome towns. This one sits in the bottom of a valley surrounded by cliffs filled with metals. The gnomes seem to enjoy taking the bits of metal out of the cliff and freeing the metal spirits to be carried around.\u000a<<else>>In a rugged valley in the west of the Gnome civilisation sits the town of Iron Hill, its industrial roots failing to detract from its beauty. Iron and other metals are mined out of the wind-whipped cliffs that surround it. From the tallest peak on a clear day, the entire western archipelago can be seen below.\u000a\u000aGnomes inhabit this area, profiting from the deposits and the occasional markets.\u000a<<endif>>\u000a\u000a<<back>>
 p386
 sg21
 VIronHill
@@ -1252,9 +1252,9 @@ g24
 ((I2014
 I1
 I26
-I8
-I25
-I1
+I13
+I59
+I19
 I6
 I26
 I1
@@ -1281,7 +1281,7 @@ tp395
 Rp396
 sbsa(dp397
 g12
-I00
+I01
 sg13
 (lp398
 F497.0
@@ -1292,7 +1292,7 @@ Tiddler
 p399
 (dp400
 g19
-V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000aThe airship Alatus rises above the marketplace and Trading Hub. The large balloon that keeps the ship afloat is wreathed in steam pipes that transport power from one part of the ship to another. Large fans and propellers are visible, used to steer the ship when it's in motion.\u000a\u000aA ladder extends down into the Trading Hub.\u000a\u000a<<back>>
+V<<if $player neq 0>><<display "Status">>\u000a<<endif>>\u000a<<if $player neq "goblin">>The airship Alatus rises above the marketplace and Trading Hub. The large balloon that keeps the ship afloat is wreathed in steam pipes that transport power from one part of the ship to another. Large fans and propellers are visible, used to steer the ship when it's in motion.\u000a\u000aA ladder extends down into the Trading Hub.\u000a<<else>>An airship rises above the gnome town, its spirit large and proud and beautiful. The curve of the balloon is covered in metal parts of different shapes, but you think that the physical appearance is nearly as pretty as the spirit itself. Unfortunately, you think it would be difficult to take the airship back to your clan to show them.\u000a\u000aA ladder extends down into the gnome building below the ship.\u000a<<endif>>\u000a\u000a<<back>>
 p401
 sg21
 VtheAlatus
@@ -1302,9 +1302,9 @@ g24
 ((I2014
 I1
 I26
-I10
-I26
-I52
+I14
+I5
+I59
 I6
 I26
 I1
