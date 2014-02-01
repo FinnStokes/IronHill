@@ -1,11 +1,11 @@
 (dp0
 S'buildDestination'
 p1
-S''
+VC:\u005cUsers\u005cFinn\u005cDocuments\u005cIronHill.html
 p2
 sS'saveDestination'
 p3
-VC:\u005cUsers\u005cSophie\u005cDocuments\u005cGitHub\u005cIronHill\u005cIronHill.tws
+S'C:\\Users\\Finn\\Documents\\GitHub\\IronHill\\IronHill.tws'
 p4
 sS'target'
 p5
@@ -692,7 +692,7 @@ Tiddler
 p219
 (dp220
 g19
-V<i>It is <<print $time>>. You are the <<print $player>>.</i>\u000a\u000aGnome progress: <<print $gnome_progress>>\u000aGoblin progress: <<print $goblin_progress>>\u000aKnight progress: <<print $knight_progress>>
+V<i>It is <<print $time>>. You are the <<print $player>>.</i>
 p221
 sg21
 VStatus
@@ -702,9 +702,9 @@ g24
 ((I2014
 I2
 I1
-I12
-I8
-I26
+I16
+I34
+I53
 I5
 I32
 I1
@@ -1742,7 +1742,7 @@ Tiddler
 p534
 (dp535
 g19
-V<<silently>>\u000a	<<set $time = "afternoon">>\u000a	<<set $goblin_progress = 3>>\u000a<<endsilently>><<display "Status">>\u000a\u000aLocked in the small room, with no view of the sky, you soon lose track of time. It's very lonely in here without the spirits you had been carrying with you. Gnomes come and go from the room, constantly asking things of you, but you have no idea what they want.\u000a\u000aEventually, you hear heavy footsteps approach. You look up to see a [[knight|Knight]] in the doorway.\u000a\u000a<<if $knight_progress geq 3>><<if $knight_reaction eq "interrogate">>The knight asks you a series of questions about your confusing day. You do your best to answer. <<endif>>In a bewildering turn of events, the knight gestures for you to follow it out of the small room and into a much larger room with more gnomes in it. You've had bad experiences with gnomes today, so you stay close to the knight and [[try not to look at anyone or anything|goblinFreed]].<<endif>>
+V<<silently>>\u000a	<<set $time = "afternoon">>\u000a	<<set $goblin_progress = 3>>\u000a<<endsilently>><<display "Status">>\u000a\u000aLocked in the small room, with no view of the sky, you soon lose track of time. It's very lonely in here without the spirits you had been carrying with you. Gnomes come and go from the room, constantly asking things of you, but you have no idea what they want.\u000a\u000aEventually, you hear heavy footsteps approach. You look up to see a [[knight|Knight]] in the doorway.\u000a\u000a<<if $knight_progress gte 3>><<if $knight_reaction eq "interrogate">>The knight asks you a series of questions about your confusing day. You do your best to answer. <<endif>>In a bewildering turn of events, the knight gestures for you to follow it out of the small room and into a much larger room with more gnomes in it. You've had bad experiences with gnomes today, so you stay close to the knight and [[try not to look at anyone or anything|goblinFreed]].<<endif>>
 p536
 sg21
 VgoblinArrested
@@ -1753,8 +1753,8 @@ g24
 I2
 I1
 I16
-I23
-I54
+I36
+I31
 I5
 I32
 I1
@@ -1834,7 +1834,7 @@ g12
 I00
 sg13
 (lp563
-F1796.0
+F1802.6666666666667
 aF69.0
 asg15
 (itiddlywiki
@@ -1842,7 +1842,7 @@ Tiddler
 p564
 (dp565
 g19
-V<<display "Status">>\u000a\u000aThe knight asks you what the goblin took. You were hoping the previous explanation would be sufficient.\u000a\u000a[["Everything! My money, and my goods."|gnomeExplainEverything]]\u000a[["Just some trinkets, I was trying to trade with it"|gnomeExplainSome]]\u000a<<if $gnome_reaction = "drop">>[["Well.. now that you ask.. nothing really"|gnomeExplainNothing]]<<endif>>
+V<<display "Status">>\u000a\u000aThe knight asks you what the goblin took. You were hoping the previous explanation would be sufficient.\u000a\u000a[["Everything! My money, and my goods."|gnomeExplainEverything]]\u000a[["Just some trinkets, I was trying to trade with it"|gnomeExplainSome]]\u000a<<if $goblin_reaction eq "drop">>[["Well.. now that you ask.. nothing really"|gnomeExplainNothing]]<<endif>>
 p566
 sg21
 VgnomeExplainStolen
@@ -1850,13 +1850,13 @@ p567
 sg23
 g24
 ((I2014
+I2
 I1
-I26
-I15
-I46
+I16
 I42
-I6
-I26
+I59
+I5
+I32
 I1
 tp568
 (dp569
@@ -1881,7 +1881,7 @@ tp575
 Rp576
 sbsa(dp577
 g12
-I00
+I01
 sg13
 (lp578
 F1833.75
@@ -1892,7 +1892,7 @@ Tiddler
 p579
 (dp580
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "everything">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou try to convince the knight that the goblin took everything, so that you don't have to admit to having almost nothing to your name. The knight is looking pretty unconvinced, you'll either need to hope your luck is strong enough without any coin, or just give up and tell the truth.\u000a\u000a[[Embelish your lie|gnomeTalking]]\u000a<<if $goblin_reaction = "take">>\u000a[[Admit the truth|gnomeExplainSome]]\u000a<<else>>\u000a[[Admit the truth|gnomeExplainNothing]]\u000a<<endif>>
+V<<silently>>\u000a<<set $gnome_reaction = "everything">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou try to convince the knight that the goblin took everything, so that you don't have to admit to having almost nothing to your name. The knight is looking pretty unconvinced, you'll either need to hope your luck is strong enough without any coin, or just give up and tell the truth.\u000a\u000a[[Embelish your lie|gnomeTalking]]\u000a<<if $goblin_reaction neq "drop">>\u000a[[Admit the truth|gnomeExplainSome]]\u000a<<else>>\u000a[[Admit the truth|gnomeExplainNothing]]\u000a<<endif>>
 p581
 sg21
 VgnomeExplainEverything
@@ -1900,13 +1900,13 @@ p582
 sg23
 g24
 ((I2014
+I2
 I1
-I26
-I15
-I49
-I0
-I6
-I26
+I16
+I44
+I39
+I5
+I32
 I1
 tp583
 (dp584
@@ -1942,7 +1942,7 @@ Tiddler
 p594
 (dp595
 g19
-V<<silently>>\u000a<<set $gnome_reaction = "some">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou explain the manner in which you tried to conduct a trade with the goblin, and how unsuccessful it was.<<if $goblin_reaction = "drop">> Although you said earlier that the goblin took your stock, you're going to need to elaborate.\u000a[[Explain everything truthfully|gnomeExplainNothing]]\u000a[[Embelish your lie|gnomeTalking]]\u000a<<else>> You'd better explain what happened with the guards too.\u000a[[Explain everything|gnomeTalking]]\u000a<<endif>>
+V<<silently>>\u000a<<set $gnome_reaction = "some">>\u000a<<endsilently>><<display "Status">>\u000a\u000aYou explain the manner in which you tried to conduct a trade with the goblin, and how unsuccessful it was.<<if $goblin_reaction eq "drop">> Although you said earlier that the goblin took your stock, you're going to need to elaborate.\u000a[[Explain everything truthfully|gnomeExplainNothing]]\u000a[[Embelish your lie|gnomeTalking]]\u000a<<else>> You'd better explain what happened with the guards too.\u000a[[Explain everything|gnomeTalking]]\u000a<<endif>>
 p596
 sg21
 VgnomeExplainSome
@@ -1950,13 +1950,13 @@ p597
 sg23
 g24
 ((I2014
+I2
 I1
-I26
 I16
-I3
-I42
-I6
-I26
+I43
+I12
+I5
+I32
 I1
 tp598
 (dp599
@@ -2381,7 +2381,7 @@ tp725
 Rp726
 sbsa(dp727
 g12
-I01
+I00
 sg13
 (lp728
 F1780.0
@@ -2392,7 +2392,7 @@ Tiddler
 p729
 (dp730
 g19
-V<<set $time = "evening">><<display "Status">>\u000a\u000aHistoric artifact in hand, you know this has been a good day. There's nothing left for you to do.\u000a\u000a<<if $gnome_progress lt 4>>You wonder how things turned out for the [[gnome|Gnome]]<<endif>>\u000a<<if $goblin_progress lt 4>>You wonder how the [[goblin|Goblin]] felt about the day<<endif>>\u000a\u000a<<if $gnome_progress geq 4 and $goblin_progress geq 4>>THE END<<endif>>
+V<<set $time = "evening">><<display "Status">>\u000a\u000aHistoric artifact in hand, you know this has been a good day. There's nothing left for you to do.\u000a\u000a<<if $gnome_progress lt 4>>You wonder how things turned out for the [[gnome|Gnome]]<<endif>>\u000a<<if $goblin_progress lt 4>>You wonder how the [[goblin|Goblin]] felt about the day<<endif>>\u000a\u000a<<if $gnome_progress gte 4 and $goblin_progress gte 4>>THE END<<endif>>
 p731
 sg21
 VknightEnd
@@ -2403,8 +2403,8 @@ g24
 I2
 I1
 I16
-I25
-I19
+I37
+I22
 I5
 I32
 I1
@@ -2542,7 +2542,7 @@ Tiddler
 p774
 (dp775
 g19
-V<<set $time = "evening">><<display "Status">>\u000a\u000aIt has been a long and confusing day. It's time to leave this gnome town behind, and continue your quest elsewhere.\u000a\u000a<<if $knight_progress lt 3>>[[You wonder what the knight was thinking|Knight]]<<endif>>\u000a<<if $gnome_progress lt 4>>[[You wonder what that gnome was trying to do|Gnome]]<<endif>>\u000a\u000a<<if $knight_progress geq 3 and $gnome_progress geq 4>>THE END<<endif>>
+V<<set $time = "evening">><<display "Status">>\u000a\u000aIt has been a long and confusing day. It's time to leave this gnome town behind, and continue your quest elsewhere.\u000a\u000a<<if $knight_progress lt 3>>[[You wonder what the knight was thinking|Knight]]<<endif>>\u000a<<if $gnome_progress lt 4>>[[You wonder what that gnome was trying to do|Gnome]]<<endif>>\u000a\u000a<<if $knight_progress gte 3 and $gnome_progress gte 4>>THE END<<endif>>
 p776
 sg21
 VgoblinEnd
@@ -2553,8 +2553,8 @@ g24
 I2
 I1
 I16
-I25
-I1
+I36
+I57
 I5
 I32
 I1
@@ -2642,7 +2642,7 @@ Tiddler
 p804
 (dp805
 g19
-V<<set $time="morning">><<display "Status">>\u000a\u000aYou stand on the deck of the mighty airship Alatus as it lifts away from Iron Hill and sets course for home. Although things turned out well enough here, you look forward to the luck you will regain from renewed contact with your stockpile of notes.\u000a\u000a<<if $knight_progress lt 3>>You wonder how things turned out for the [[knight|Knight]]<<endif>>\u000a<<if $goblin_progress lt 4>>You wonder how the [[goblin|Goblin]] felt about the day<<endif>>\u000a\u000a<<if $knight_progress geq 3 and $goblin_progress geq 4>>THE END<<endif>>
+V<<set $time="morning">><<display "Status">>\u000a\u000aYou stand on the deck of the mighty airship Alatus as it lifts away from Iron Hill and sets course for home. Although things turned out well enough here, you look forward to the luck you will regain from renewed contact with your stockpile of notes.\u000a\u000a<<if $knight_progress lt 3>>You wonder how things turned out for the [[knight|Knight]]<<endif>>\u000a<<if $goblin_progress lt 4>>You wonder how the [[goblin|Goblin]] felt about the day<<endif>>\u000a\u000a<<if $knight_progress gte 3 and $goblin_progress gte 4>>THE END<<endif>>
 p806
 sg21
 VgnomeEnd
@@ -2653,8 +2653,8 @@ g24
 I2
 I1
 I16
-I19
-I36
+I37
+I37
 I5
 I32
 I1
